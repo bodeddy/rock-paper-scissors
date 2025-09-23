@@ -2,6 +2,11 @@ const rock = "Rock";
 const paper = "Paper";
 const scissors = "Scissors";
 
+let humanScore = 0;
+let computerScore = 0;
+let human = getHumanChoice();
+let comp = getComputerChoice();
+
 function getComputerChoice() {    
     let randomChoice = Math.random();
     if (randomChoice < 0.3) {
@@ -13,8 +18,7 @@ function getComputerChoice() {
     }
 }
 
-console.log(getComputerChoice());
-
+// console.log(getComputerChoice());
 
 function getHumanChoice() {
     let userChoice = Number(prompt("Let's play rock, paper, scissors. For rock, type 1; for paper, type 2; and for scissors, type 3: "));
@@ -29,4 +33,15 @@ function getHumanChoice() {
     }
 }
 
-console.log(getHumanChoice());
+// console.log(getHumanChoice());
+
+function playRound(humanChoice, computerChoice) {    
+    if (humanChoice === rock && computerChoice == paper) {
+        console.log("You lose!")
+    } else {
+        console.log("You win!");
+    }
+}
+
+console.log(playRound(human, comp));
+
