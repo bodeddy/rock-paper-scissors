@@ -29,15 +29,16 @@ function playRound(computer, human) {
         console.log(`You chose ${human} and the computer chose ${computer}. It's a draw.`);
     } else if (human === "rock" && computer === "paper") {
         console.log(`You chose ${human} and the computer chose ${computer}. You lose!`);
+        computerScore++;
     } else {
         console.log(`You chose ${human} and the computer chose ${computer}. You win!`);
+        humanScore++;
     }
 }
 
 playRound(getComputerChoice(), getHumanChoice());
 
 
-console.log(typeof rock);
-// console.log(typeof humanChoice);
-
+console.log(`Computer: ${computerScore}`);
+console.log(`Human: ${humanScore}`);
 
