@@ -1,47 +1,43 @@
-const rock = "Rock";
-const paper = "Paper";
-const scissors = "Scissors";
+const rock = "rock";
+const paper = "paper";
+const scissors = "scissors";
 
 let humanScore = 0;
 let computerScore = 0;
-let human = getHumanChoice();
-let comp = getComputerChoice();
+
 
 function getComputerChoice() {    
     let randomChoice = Math.random();
-    if (randomChoice < 0.3) {
+    if (randomChoice < 0.5) {
         return rock;
-    } else if (randomChoice > 0.3 && randomChoice < 0.6) {
-        return paper;
     } else {
-        return scissors;
+        return paper;
     }
 }
-
-// console.log(getComputerChoice());
 
 function getHumanChoice() {
-    let userChoice = Number(prompt("Let's play rock, paper, scissors. For rock, type 1; for paper, type 2; and for scissors, type 3: "));
-    if (userChoice === 1) {
-        return rock;
-    } else if (userChoice === 2) {
-        return paper;
-    } else if (userChoice === 3) {
-        return scissors;
+    let userChoice = prompt("Please choose rock or paper: ");
+    let caseUserChoice = userChoice.toLocaleLowerCase();
+    return caseUserChoice;
+}
+
+// const computerChoice = getComputerChoice();
+// const humanChoice = getHumanChoice();
+
+function playRound(computer, human) {    
+    if (human === computer) {
+        console.log(`You chose ${human} and the computer chose ${computer}. It's a draw.`);
+    } else if (human === "rock" && computer === "paper") {
+        console.log(`You chose ${human} and the computer chose ${computer}. You lose!`);
     } else {
-        console.log("Wrong input. You had your chance and blew it.")
+        console.log(`You chose ${human} and the computer chose ${computer}. You win!`);
     }
 }
 
-// console.log(getHumanChoice());
+playRound(getComputerChoice(), getHumanChoice());
 
-function playRound(humanChoice, computerChoice) {    
-    if (humanChoice === rock && computerChoice == paper) {
-        console.log("You lose!")
-    } else {
-        console.log("You win!");
-    }
-}
 
-console.log(playRound(human, comp));
+console.log(typeof rock);
+// console.log(typeof humanChoice);
+
 
