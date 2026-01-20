@@ -15,39 +15,25 @@ function getComputerChoice() {
         return scissors;
     }
 }
-
-function getHumanChoice() {
-    let userChoice = prompt("Please choose rock, paper or scissors: ");
-    let caseUserChoice = userChoice.toLocaleLowerCase();
-    return caseUserChoice;
-}
-
-
-function playGame() {
     
-    function playRound(computer, human) {    
-        if (human === computer) {
-            console.log(`You chose ${human} and the computer chose ${computer}. It's a draw.`);
-        } else if (
-            human === "rock" && computer === "paper" || 
-            human === "scissors" && computer === "rock" ||
-            human === "paper" && computer === "scissors") {
-            console.log(`You chose ${human} and the computer chose ${computer}. You lose!`);
-            computerScore++;
-        } else {
-            console.log(`You chose ${human} and the computer chose ${computer}. You win!`);
-            humanScore++;
-        }
-    }
-    
-    for (let i = 0; i < 5; i++) {
-        const computerChoice = getComputerChoice();
-        const humanChoice = getHumanChoice();
-        playRound(computerChoice, humanChoice);
-        console.log(`Computer: ${computerScore}`);
-        console.log(`Human: ${humanScore}`);
+function playRound(computer, human) {    
+    if (human === computer) {
+        console.log(`You chose ${human} and the computer chose ${computer}. It's a draw.`);
+    } else if (
+        human === "rock" && computer === "paper" || 
+        human === "scissors" && computer === "rock" ||
+        human === "paper" && computer === "scissors") {
+        console.log(`You chose ${human} and the computer chose ${computer}. You lose!`);
+        computerScore++;
+    } else {
+        console.log(`You chose ${human} and the computer chose ${computer}. You win!`);
+        humanScore++;
     }
 }
 
-playGame();
+const computerChoice = getComputerChoice();
+
+const rockButton = document.querySelector("#rock");
+rockButton.addEventListener("click", () => {playRound(computerChoice, rock)});
+    
 
