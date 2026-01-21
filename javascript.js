@@ -15,18 +15,24 @@ function getComputerChoice() {
         return scissors;
     }
 }
+
+const messageDiv = document.querySelector("#messages");
+const displayDiv = document.createElement("div");
     
 function playRound(computer, human) {    
     if (human === computer) {
-        console.log(`You chose ${human} and the computer chose ${computer}. It's a draw.`);
+        messageDiv.appendChild(displayDiv);
+        displayDiv.textContent = `You chose ${human} and the computer chose ${computer}. It's a draw.`;
     } else if (
         human === "rock" && computer === "paper" || 
         human === "scissors" && computer === "rock" ||
         human === "paper" && computer === "scissors") {
-        console.log(`You chose ${human} and the computer chose ${computer}. You lose!`);
+        messageDiv.appendChild(displayDiv);
+        displayDiv.textContent = `You chose ${human} and the computer chose ${computer}. You lose!`;
         computerScore++;
     } else {
-        console.log(`You chose ${human} and the computer chose ${computer}. You win!`);
+        messageDiv.appendChild(displayDiv);
+        displayDiv.textContent = `You chose ${human} and the computer chose ${computer}. You win!`;
         humanScore++;
     }
 }
@@ -40,5 +46,6 @@ const scissorsButton = document.querySelector("#scissors");
 rockButton.addEventListener("click", () => {playRound(computerChoice, rock)});
 paperButton.addEventListener("click", () => {playRound(computerChoice, paper)});
 scissorsButton.addEventListener("click", () => {playRound(computerChoice, scissors)});
-    
+
+
 
