@@ -27,13 +27,13 @@ function playRound(computer, human) {
         human === "rock" && computer === "paper" || 
         human === "scissors" && computer === "rock" ||
         human === "paper" && computer === "scissors") {
+        computerScore++;
         messageDiv.appendChild(displayDiv);
         displayDiv.textContent = `You chose ${human} and the computer chose ${computer}. You lose! Score: ${humanScore} : ${computerScore}`;
-        computerScore++;
     } else {
+        humanScore++;
         messageDiv.appendChild(displayDiv);
         displayDiv.textContent = `You chose ${human} and the computer chose ${computer}. You win! Score: ${humanScore} : ${computerScore}`;
-        humanScore++;
     }
 
     if (humanScore === 5) alert("Finally! You've gotten to 5!")
